@@ -1,4 +1,5 @@
 import express from 'express'
+import cors from 'cors'
 import { routes } from './routes'
 
 const app = express()
@@ -10,6 +11,10 @@ const app = express()
 // PATCH = Atualizar uma informação única de uma entidade
 // DELETE = Deletar uma informação
 
+
+app.use(cors({
+  origin: 'http://localhost:3333'
+}))
 app.use(express.json())
 app.use(routes)
 
